@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Brain Buffet - Productivity Restaurant</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="restaurant-container">
+    <!-- Restaurant Header -->
+    <header class="restaurant-header">
+      <div class="restaurant-logo">
+        <h1 class="restaurant-name">🧠 Brain Buffet</h1>
+        <p class="restaurant-tagline">Feast Your Mind, Feed Your Goals</p>
+      </div>
+    </header>    <!-- Welcome Screen / Navigation -->
+    <div id="welcome-screen" class="welcome-screen">
+      <div class="welcome-content">
+        <h2 class="welcome-title">Welcome to Brain Buffet!</h2>
+        <p class="welcome-subtitle">Choose your dining experience</p>
+        
+        <div class="dining-options">
+          <div class="dining-option" data-section="table">
+            <div class="option-icon">🍽️</div>
+            <h3 class="option-title">Your Table</h3>
+            <p class="option-description">View and manage your current feast of tasks</p>
+            <button class="option-btn">Take Your Seat</button>
+          </div>
+
+          <div class="dining-option" data-section="kitchen">
+            <div class="option-icon">👨‍🍳</div>
+            <h3 class="option-title">Chef's Kitchen</h3>
+            <p class="option-description">Create and prepare new delicious tasks</p>
+            <button class="option-btn">Enter Kitchen</button>
+          </div>
+
+          <div class="dining-option" data-section="productivity">
+            <div class="option-icon">⚡</div>
+            <h3 class="option-title">Energy Station</h3>
+            <p class="option-description">Manage your focus time and hydration</p>
+            <button class="option-btn">Boost Energy</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Table Section - View Tasks -->
+    <div id="table-section" class="section-screen hidden">
+      <div class="section-header">
+        <button class="back-btn">← Back to Menu</button>
+        <h2 class="section-title">🍽️ Your Table - Current Feast</h2>
+      </div>
+      
+      <div class="table-content">
+        <div class="course-section">
+          <div class="course-header">
+            <h3 class="course-title">🥗 Appetizers</h3>
+            <span class="course-subtitle">Quick bites to start your day</span>
+          </div>
+          <ul id="appetizers-list" class="task-list">
+            <!-- Tasks populated by JS -->
+          </ul>
+        </div>
+
+        <div class="course-section">
+          <div class="course-header">
+            <h3 class="course-title">🍖 Main Course</h3>
+            <span class="course-subtitle">Hearty tasks that fuel your success</span>
+          </div>
+          <ul id="main-course-list" class="task-list">
+            <!-- Tasks populated by JS -->
+          </ul>
+        </div>
+
+        <div class="course-section">
+          <div class="course-header">
+            <h3 class="course-title">🍰 Desserts</h3>
+            <span class="course-subtitle">Sweet rewards and fun activities</span>
+          </div>
+          <ul id="desserts-list" class="task-list">
+            <!-- Tasks populated by JS -->
+          </ul>
+        </div>
+
+        <!-- Progress Visualization -->
+        <div class="meal-progress">
+          <h4 class="progress-title">🏆 Meal Completion</h4>
+          <div class="progress-plates">
+            <div class="plate" id="plate-1">
+              <div class="plate-content">1</div>
+            </div>
+            <div class="plate" id="plate-2">
+              <div class="plate-content">2</div>
+            </div>
+            <div class="plate" id="plate-3">
+              <div class="plate-content">3</div>
+            </div>
+            <div class="plate" id="plate-4">
+              <div class="plate-content">4</div>
+            </div>
+            <div class="plate" id="plate-5">
+              <div class="plate-content">5</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Kitchen Section - Add Tasks -->
+    <div id="kitchen-section" class="section-screen hidden">
+      <div class="section-header">
+        <button class="back-btn">← Back to Menu</button>
+        <h2 class="section-title">👨‍🍳 Chef's Kitchen - Prepare New Dishes</h2>
+      </div>
+      
+      <div class="kitchen-content">
+        <div class="recipe-station">
+          <div class="station-header">
+            <h3 class="station-title">🥗 Appetizer Station</h3>
+            <p class="station-description">Prepare quick starter tasks</p>
+          </div>
+          <div class="recipe-input">
+            <input type="text" id="appetizer-input" class="dish-input" placeholder="What appetizing task will you create?">
+            <button class="add-dish-btn" data-course="appetizers">
+              <span class="btn-icon">+</span>
+              <span class="btn-text">Add to Menu</span>
+            </button>
+          </div>
+        </div>
+
+        <div class="recipe-station">
+          <div class="station-header">
+            <h3 class="station-title">🍖 Main Course Station</h3>
+            <p class="station-description">Cook up substantial work tasks</p>
+          </div>
+          <div class="recipe-input">
+            <input type="text" id="main-course-input" class="dish-input" placeholder="What main dish represents your big goal?">
+            <button class="add-dish-btn" data-course="mainCourse">
+              <span class="btn-icon">+</span>
+              <span class="btn-text">Add to Menu</span>
+            </button>
+          </div>
+        </div>
+
+        <div class="recipe-station">
+          <div class="station-header">
+            <h3 class="station-title">🍰 Dessert Station</h3>
+            <p class="station-description">Create sweet finishing touches</p>
+          </div>
+          <div class="recipe-input">
+            <input type="text" id="dessert-input" class="dish-input" placeholder="What sweet reward will complete your day?">
+            <button class="add-dish-btn" data-course="desserts">
+              <span class="btn-icon">+</span>
+              <span class="btn-text">Add to Menu</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Kitchen Tools -->
+        <div class="kitchen-tools">
+          <h4 class="tools-title">🔧 Kitchen Tools</h4>
+          <div class="tools-grid">
+            <button class="tool-btn" id="clear-appetizers">🧹 Clear Appetizers</button>
+            <button class="tool-btn" id="clear-main-course">🧹 Clear Main Course</button>
+            <button class="tool-btn" id="clear-desserts">🧹 Clear Desserts</button>
+            <button class="tool-btn danger" id="reset-all-menu">🔥 Reset All</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Productivity Section - Timer & Water -->
+    <div id="productivity-section" class="section-screen hidden">
+      <div class="section-header">
+        <button class="back-btn">← Back to Menu</button>
+        <h2 class="section-title">⚡ Energy Station - Fuel Your Performance</h2>
+      </div>
+      
+      <div class="productivity-content">
+        <!-- Focus Timer -->
+        <div class="energy-boost">
+          <div class="boost-header">
+            <h3 class="boost-title">🔥 Focus Furnace</h3>
+            <p class="boost-description">Cook your tasks with intense focus</p>
+          </div>
+          
+          <div class="timer-display">
+            <div class="timer-circle">
+              <div class="timer-inner">
+                <div class="time-display">
+                  <span id="minutes">25</span>:<span id="seconds">00</span>
+                </div>
+                <div class="timer-label">
+                  <span id="session-type">Focus Time</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <div class="timer-controls">
+            <button id="start-timer" class="control-btn start">
+              <span class="btn-icon">▶️</span>
+              <span class="btn-text">Start Cooking</span>
+            </button>
+            <button id="pause-timer" class="control-btn pause" disabled>
+              <span class="btn-icon">⏸️</span>
+              <span class="btn-text">Pause</span>
+            </button>
+            <button id="reset-timer" class="control-btn reset">
+              <span class="btn-icon">🔄</span>
+              <span class="btn-text">Reset</span>
+            </button>
+          </div>
+          
+          <div class="session-info">
+            <span class="session-counter">Session <span id="current-session">1</span>/4</span>
+            <span class="session-status" id="session-status">Ready to cook!</span>
+          </div>
+        </div>
+
+        <!-- Hydration Station -->
+        <div class="hydration-station">
+          <div class="station-header">
+            <h3 class="station-title">💧 Hydration Bar</h3>
+            <p class="station-description">Keep your brain well-watered</p>
+          </div>
+          
+          <div class="hydration-display">
+            <div class="water-glass">
+              <div class="glass-fill" id="water-fill"></div>
+              <div class="glass-measurement">
+                <span id="water-current">0</span>ml / <span id="water-goal">2000</span>ml
+              </div>
+            </div>
+          </div>
+          
+          <div class="hydration-controls">
+            <button class="hydration-btn" onclick="app.addWater(250)">
+              <span class="btn-icon">🥤</span>
+              <span class="btn-text">+250ml</span>
+            </button>
+            <button class="hydration-btn" onclick="app.addWater(500)">
+              <span class="btn-icon">🍶</span>
+              <span class="btn-text">+500ml</span>
+            </button>
+            <button class="hydration-btn" id="custom-water">
+              <span class="btn-icon">⚗️</span>
+              <span class="btn-text">Custom</span>
+            </button>
+            <button class="hydration-btn reset" onclick="app.resetWater()">
+              <span class="btn-icon">🔄</span>
+              <span class="btn-text">Reset</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Settings Panel -->
+        <div class="settings-panel">
+          <button id="settings-toggle" class="settings-btn">
+            <span class="btn-icon">⚙️</span>
+            <span class="btn-text">Kitchen Settings</span>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Settings Modal -->
+    <div id="settings-modal" class="modal hidden">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h3 class="modal-title">⚙️ Kitchen Settings</h3>
+          <button class="modal-close" id="close-settings">×</button>
+        </div>
+        <div class="modal-body">
+          <div class="setting-group">
+            <label class="setting-label">🔥 Focus Time (minutes)</label>
+            <input type="number" id="focus-duration" class="setting-input" value="25" min="5" max="60">
+          </div>
+          <div class="setting-group">
+            <label class="setting-label">☕ Short Break (minutes)</label>
+            <input type="number" id="short-break" class="setting-input" value="5" min="1" max="15">
+          </div>
+          <div class="setting-group">
+            <label class="setting-label">🍽️ Long Break (minutes)</label>
+            <input type="number" id="long-break" class="setting-input" value="30" min="15" max="60">
+          </div>
+          <div class="setting-group">
+            <label class="setting-label">💧 Daily Water Goal (ml)</label>
+            <input type="number" id="water-goal-setting" class="setting-input" value="2000" min="500" max="5000" step="100">
+          </div>
+          <div class="setting-group">
+            <label class="setting-checkbox">
+              <input type="checkbox" id="notifications-enabled" checked>
+              <span class="checkbox-text">🔔 Enable cooking notifications</span>
+            </label>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button id="save-settings" class="save-btn">Save Settings</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Water Amount Modal -->
+    <div id="water-modal" class="modal hidden">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h3 class="modal-title">⚗️ Custom Hydration</h3>
+          <button class="modal-close" id="close-water-modal">×</button>
+        </div>
+        <div class="modal-body">
+          <div class="setting-group">
+            <label class="setting-label">Amount (ml)</label>
+            <input type="number" id="custom-water-amount" class="setting-input" value="100" min="50" max="1000" step="50">
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button id="add-custom-water" class="save-btn">Add Water</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

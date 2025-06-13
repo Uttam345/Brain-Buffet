@@ -1,0 +1,1246 @@
+/* Brain Buffet Restaurant - Productivity Theme CSS */
+
+/* Color Palette - Productive Restaurant Theme */
+:root {
+  /* Restaurant Colors - Warm, Inviting, Productive */
+  --bg-primary: #1a1a1a;           /* Deep charcoal for elegance */
+  --bg-secondary: #2d2d2d;         /* Soft gray for surfaces */
+  --bg-accent: #3a3a3a;            /* Lighter gray for cards */
+  
+  /* Brand Colors - Golden & Warm */
+  --brand-gold: #ffa500;           /* Warm orange-gold */
+  --brand-gold-light: #ffb733;     /* Light golden accent */
+  --brand-gold-dark: #cc8400;      /* Dark golden accent */
+  
+  /* Restaurant Accent Colors */
+  --restaurant-red: #d84315;       /* Chef's apron red */
+  --restaurant-green: #4caf50;     /* Fresh herb green */
+  --restaurant-brown: #8d6e63;     /* Wood & leather brown */
+  
+  /* Text Colors */
+  --text-primary: #ffffff;         /* Pure white for headings */
+  --text-secondary: #e0e0e0;       /* Light gray for body */
+  --text-muted: #bdbdbd;           /* Muted gray for subtitles */
+  --text-accent: var(--brand-gold); /* Golden text */
+  
+  /* Status Colors */
+  --success: #66bb6a;              /* Fresh green */
+  --warning: #ffab40;              /* Warm orange */
+  --error: #ef5350;                /* Warm red */
+  --info: #42a5f5;                 /* Cool blue */
+  
+  /* Spacing System */
+  --space-xs: 4px;
+  --space-sm: 8px;
+  --space-md: 16px;
+  --space-lg: 24px;
+  --space-xl: 32px;
+  --space-xxl: 48px;
+  
+  /* Typography */
+  --font-heading: 'Playfair Display', serif;
+  --font-body: 'Inter', sans-serif;
+  --font-size-xs: 12px;
+  --font-size-sm: 14px;
+  --font-size-md: 16px;
+  --font-size-lg: 18px;
+  --font-size-xl: 24px;
+  --font-size-xxl: 32px;
+  
+  /* Border Radius */
+  --radius-sm: 6px;
+  --radius-md: 12px;
+  --radius-lg: 18px;
+  --radius-xl: 24px;
+  --radius-round: 50%;
+  
+  /* Shadows & Effects */
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.1);
+  --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.15);
+  --shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.2);
+  --shadow-glow: 0 0 20px rgba(255, 165, 0, 0.3);
+  
+  /* Transitions */
+  --transition-fast: 0.15s ease;
+  --transition-normal: 0.3s ease;
+  --transition-slow: 0.5s ease;
+}
+
+/* Reset & Base Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-body);
+  background: var(--bg-primary);
+  color: var(--text-secondary);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+/* Restaurant Container */
+.restaurant-container {
+  min-height: 100vh;
+  max-width: 100%;
+  padding: var(--space-lg);
+  background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+}
+
+/* Restaurant Header */
+.restaurant-header {
+  text-align: center;
+  margin-bottom: var(--space-xxl);
+  padding: var(--space-lg);
+  background: var(--bg-secondary);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-md);
+}
+
+.restaurant-name {
+  font-family: var(--font-heading);
+  font-size: var(--font-size-xxl);
+  color: var(--brand-gold);
+  margin-bottom: var(--space-sm);
+  text-shadow: 0 2px 4px rgba(255, 165, 0, 0.3);
+}
+
+.restaurant-tagline {
+  font-size: var(--font-size-md);
+  color: var(--text-muted);
+  font-style: italic;
+  margin: 0;
+}
+
+/* Welcome Screen */
+.welcome-screen {
+  text-align: center;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.welcome-title {
+  font-family: var(--font-heading);
+  font-size: var(--font-size-xl);
+  color: var(--text-primary);
+  margin-bottom: var(--space-sm);
+}
+
+.welcome-subtitle {
+  font-size: var(--font-size-md);
+  color: var(--text-muted);
+  margin-bottom: var(--space-xxl);
+}
+
+/* Dining Options Grid */
+.dining-options {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: var(--space-xl);
+  margin-top: var(--space-xxl);
+}
+
+.dining-option {
+  background: var(--bg-secondary);
+  border-radius: var(--radius-lg);
+  padding: var(--space-xl);
+  text-align: center;
+  box-shadow: var(--shadow-md);
+  border: 2px solid transparent;
+  cursor: pointer;
+  transition: all var(--transition-normal);
+  position: relative;
+  overflow: hidden;
+}
+
+.dining-option::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 165, 0, 0.1), transparent);
+  transition: left var(--transition-slow);
+}
+
+.dining-option:hover {
+  transform: translateY(-4px);
+  border-color: var(--brand-gold);
+  box-shadow: var(--shadow-lg), var(--shadow-glow);
+}
+
+.dining-option:hover::before {
+  left: 100%;
+}
+
+.option-icon {
+  font-size: 48px;
+  margin-bottom: var(--space-md);
+  display: block;
+}
+
+.option-title {
+  font-family: var(--font-heading);
+  font-size: var(--font-size-lg);
+  color: var(--text-primary);
+  margin-bottom: var(--space-sm);
+}
+
+.option-description {
+  color: var(--text-muted);
+  margin-bottom: var(--space-lg);
+  line-height: 1.5;
+}
+
+.option-btn {
+  background: var(--brand-gold);
+  color: var(--bg-primary);
+  border: none;
+  padding: var(--space-md) var(--space-lg);
+  border-radius: var(--radius-md);
+  font-weight: 600;
+  font-size: var(--font-size-sm);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.option-btn:hover {
+  background: var(--brand-gold-light);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(255, 165, 0, 0.4);
+}
+
+/* Enhanced Kitchen Button Design */
+.add-dish-btn {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(135deg, var(--brand-gold), var(--brand-gold-light));
+  border: 2px solid var(--brand-gold-dark);
+  border-radius: var(--radius-md);
+  padding: var(--space-md) var(--space-lg);
+  color: var(--bg-primary);
+  font-weight: 600;
+  font-size: var(--font-size-sm);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  cursor: pointer;
+  transition: all var(--transition-normal);
+  box-shadow: 
+    0 4px 8px rgba(255, 165, 0, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  min-width: 140px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-sm);
+}
+
+.add-dish-btn:hover {
+  background: linear-gradient(135deg, var(--brand-gold-light), #ffcc66);
+  border-color: var(--brand-gold);
+  box-shadow: 
+    0 6px 16px rgba(255, 165, 0, 0.4),
+    inset 0 1px 0 rgba(255, 255, 255, 0.3),
+    0 0 20px rgba(255, 165, 0, 0.3);
+  transform: translateY(-2px);
+}
+
+.add-dish-btn:active {
+  transform: translateY(0) scale(0.98);
+  box-shadow: 
+    0 2px 4px rgba(255, 165, 0, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+/* Button text and icon styling */
+.add-dish-btn .btn-icon {
+  font-size: var(--font-size-lg);
+  font-weight: bold;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+.add-dish-btn .btn-text {
+  font-family: var(--font-body);
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+/* Ripple effect */
+.add-dish-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+  transition: left var(--transition-slow);
+}
+
+.add-dish-btn:hover::before {
+  left: 100%;
+}
+
+/* Click ripple effect */
+.add-dish-btn::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  background: rgba(255, 255, 255, 0.4);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  transition: width 0.4s ease-out, height 0.4s ease-out, opacity 0.4s ease-out;
+  opacity: 0;
+}
+
+.add-dish-btn:active::after {
+  width: 120px;
+  height: 120px;
+  opacity: 1;
+}
+
+/* Success feedback animation */
+.add-dish-btn.success {
+  background: linear-gradient(135deg, var(--success), #81c784) !important;
+  border-color: var(--success) !important;
+  animation: successPulse 0.8s ease-out;
+}
+
+@keyframes successPulse {
+  0% { 
+    transform: scale(1); 
+    box-shadow: 0 4px 8px rgba(76, 175, 80, 0.3);
+  }
+  30% { 
+    transform: scale(1.05); 
+    box-shadow: 0 8px 24px rgba(76, 175, 80, 0.6);
+  }
+  100% { 
+    transform: scale(1); 
+    box-shadow: 0 4px 8px rgba(76, 175, 80, 0.3);
+  }
+}
+
+/* Button hover glow animation */
+@keyframes buttonGlow {
+  0%, 100% { 
+    box-shadow: 
+      0 6px 16px rgba(255, 165, 0, 0.4),
+      inset 0 1px 0 rgba(255, 255, 255, 0.3),
+      0 0 20px rgba(255, 165, 0, 0.3);
+  }
+  50% { 
+    box-shadow: 
+      0 8px 20px rgba(255, 165, 0, 0.5),
+      inset 0 1px 0 rgba(255, 255, 255, 0.4),
+      0 0 30px rgba(255, 165, 0, 0.5);
+  }
+}
+
+.add-dish-btn:hover {
+  animation: buttonGlow 2s ease-in-out infinite;
+}
+
+/* Welcome Screen */
+.welcome-screen {
+  display: block;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: var(--space-lg);
+}
+
+.welcome-screen.hidden {
+  display: none;
+}
+
+/* Section Screens */
+.section-screen {
+  display: block;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: var(--space-lg);
+}
+
+.section-screen.hidden {
+  display: none;
+}
+
+/* Section Header */
+.section-header {
+  display: flex;
+  align-items: center;
+  gap: var(--space-lg);
+  margin-bottom: var(--space-xxl);
+  padding-bottom: var(--space-lg);
+  border-bottom: 2px solid var(--bg-accent);
+}
+
+.back-btn {
+  background: var(--bg-accent);
+  color: var(--text-secondary);
+  border: 2px solid var(--brand-gold);
+  padding: var(--space-sm) var(--space-md);
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  font-size: var(--font-size-sm);
+}
+
+.back-btn:hover {
+  background: var(--brand-gold);
+  color: var(--bg-primary);
+  transform: translateX(-2px);
+}
+
+.section-title {
+  font-family: var(--font-heading);
+  font-size: var(--font-size-xl);
+  color: var(--brand-gold);
+  margin: 0;
+}
+
+/* Table Content - Your Tasks */
+.table-content {
+  display: grid;
+  gap: var(--space-xl);
+}
+
+.course-section {
+  background: var(--bg-secondary);
+  border-radius: var(--radius-lg);
+  padding: var(--space-lg);
+  box-shadow: var(--shadow-md);
+}
+
+.course-header {
+  margin-bottom: var(--space-lg);
+  padding-bottom: var(--space-md);
+  border-bottom: 1px solid var(--bg-accent);
+}
+
+.course-title {
+  font-family: var(--font-heading);
+  font-size: var(--font-size-lg);
+  color: var(--text-primary);
+  margin-bottom: var(--space-xs);
+}
+
+.course-subtitle {
+  font-size: var(--font-size-sm);
+  color: var(--text-muted);
+  font-style: italic;
+}
+
+/* Task Lists */
+.task-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  max-height: 300px;
+  overflow-y: auto;
+}
+
+.task-item {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  padding: var(--space-md);
+  background: var(--bg-accent);
+  border-radius: var(--radius-md);
+  margin-bottom: var(--space-sm);
+  border: 2px solid transparent;
+  transition: all var(--transition-fast);
+  position: relative;
+  overflow: hidden;
+}
+
+.task-item:hover {
+  border-color: var(--brand-gold);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+.task-item.completed {
+  opacity: 0.7;
+  background: var(--bg-secondary);
+}
+
+.task-item.completed .task-text {
+  text-decoration: line-through;
+  color: var(--text-muted);
+}
+
+.task-checkbox {
+  width: 18px;
+  height: 18px;
+  accent-color: var(--brand-gold);
+  cursor: pointer;
+}
+
+.task-text {
+  flex: 1;
+  color: var(--text-secondary);
+  font-size: var(--font-size-sm);
+  line-height: 1.4;
+}
+
+.task-delete {
+  color: var(--error);
+  cursor: pointer;
+  font-size: var(--font-size-lg);
+  font-weight: bold;
+  padding: var(--space-xs);
+  border-radius: var(--radius-sm);
+  transition: all var(--transition-fast);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+}
+
+.task-delete:hover {
+  background: var(--error);
+  color: white;
+  transform: scale(1.1);
+}
+
+/* Progress Plates */
+.meal-progress {
+  margin-top: var(--space-xl);
+  text-align: center;
+  background: var(--bg-secondary);
+  padding: var(--space-lg);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-md);
+}
+
+.progress-title {
+  font-family: var(--font-heading);
+  color: var(--text-primary);
+  margin-bottom: var(--space-lg);
+  font-size: var(--font-size-lg);
+}
+
+.progress-plates {
+  display: flex;
+  justify-content: center;
+  gap: var(--space-md);
+  flex-wrap: wrap;
+}
+
+.plate {
+  width: 60px;
+  height: 60px;
+  border-radius: var(--radius-round);
+  background: var(--bg-accent);
+  border: 3px solid var(--text-muted);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all var(--transition-normal);
+  position: relative;
+  overflow: hidden;
+}
+
+.plate.filled {
+  background: var(--brand-gold);
+  border-color: var(--brand-gold-light);
+  box-shadow: var(--shadow-glow);
+  animation: plateGlow 2s ease-in-out infinite alternate;
+}
+
+.plate-content {
+  font-family: var(--font-heading);
+  font-size: var(--font-size-md);
+  font-weight: bold;
+  color: var(--text-primary);
+}
+
+.plate.filled .plate-content {
+  color: var(--bg-primary);
+}
+
+@keyframes plateGlow {
+  0% { transform: scale(1); }
+  100% { transform: scale(1.05); }
+}
+
+@keyframes timerPulse {
+  0% { box-shadow: var(--shadow-glow); }
+  100% { box-shadow: 0 0 30px rgba(255, 165, 0, 0.6); }
+}
+
+/* Water Glass Animation */
+.water-glass {
+  position: relative;
+  overflow: hidden;
+}
+
+.glass-fill {
+  transition: height 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+}
+
+.glass-fill::after {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+  animation: waterShimmer 2s ease-in-out infinite;
+}
+
+@keyframes waterShimmer {
+  0%, 100% { 
+    opacity: 0; 
+    transform: translateX(-100%);
+  }
+  50% { 
+    opacity: 1; 
+    transform: translateX(100%);
+  }
+}
+
+@keyframes waterBubbles {
+  0%, 100% { 
+    opacity: 0; 
+    transform: scale(0.8);
+  }
+  50% { 
+    opacity: 0.3; 
+    transform: scale(1.1);
+  }
+}
+
+/* Empty state messages */
+.task-list:empty::before {
+  content: "No dishes prepared yet... Visit the kitchen to create some!";
+  display: block;
+  text-align: center;
+  color: var(--text-muted);
+  font-style: italic;
+  padding: var(--space-xl);
+  background: var(--bg-accent);
+  border-radius: var(--radius-md);
+  border: 2px dashed var(--brand-gold);
+}
+
+/* Course section styling improvements */
+.course-section {
+  margin-bottom: var(--space-xl);
+}
+
+.course-header {
+  margin-bottom: var(--space-lg);
+  text-align: center;
+  padding: var(--space-md);
+  background: var(--bg-secondary);
+  border-radius: var(--radius-md);
+  border: 2px solid var(--brand-gold);
+}
+
+.course-title {
+  font-family: var(--font-heading);
+  color: var(--brand-gold);
+  margin-bottom: var(--space-xs);
+  font-size: var(--font-size-lg);
+}
+
+.course-subtitle {
+  color: var(--text-muted);
+  font-size: var(--font-size-sm);
+  font-style: italic;
+}
+
+/* Productivity Content */
+.productivity-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-xl);
+}
+
+.energy-boost, .hydration-station {
+  background: var(--bg-secondary);
+  border-radius: var(--radius-lg);
+  padding: var(--space-lg);
+  box-shadow: var(--shadow-md);
+}
+
+.boost-header, .station-header {
+  text-align: center;
+  margin-bottom: var(--space-lg);
+}
+
+.boost-title, .station-title {
+  font-family: var(--font-heading);
+  font-size: var(--font-size-lg);
+  color: var(--text-primary);
+  margin-bottom: var(--space-xs);
+}
+
+.boost-description, .station-description {
+  color: var(--text-muted);
+  font-size: var(--font-size-sm);
+  font-style: italic;
+}
+
+/* Timer Display */
+.timer-display {
+  display: flex;
+  justify-content: center;
+  margin: var(--space-xl) 0;
+}
+
+.timer-circle {
+  width: 200px;
+  height: 200px;
+  border-radius: var(--radius-round);
+  background: var(--bg-accent);
+  border: 4px solid var(--brand-gold);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  transition: all var(--transition-normal);
+}
+
+.timer-circle.active {
+  box-shadow: var(--shadow-glow);
+  animation: timerPulse 2s ease-in-out infinite alternate;
+}
+
+.timer-inner {
+  text-align: center;
+}
+
+.time-display {
+  font-family: var(--font-heading);
+  font-size: var(--font-size-xxl);
+  color: var(--brand-gold);
+  font-weight: bold;
+  margin-bottom: var(--space-sm);
+}
+
+.timer-label {
+  color: var(--text-muted);
+  font-size: var(--font-size-sm);
+}
+
+@keyframes timerPulse {
+  from { box-shadow: 0 0 15px rgba(255, 165, 0, 0.3); }
+  to { box-shadow: 0 0 25px rgba(255, 165, 0, 0.6); }
+}
+
+/* Timer Controls */
+.timer-controls {
+  display: flex;
+  justify-content: center;
+  gap: var(--space-md);
+  margin-bottom: var(--space-lg);
+  flex-wrap: wrap;
+}
+
+.control-btn {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  padding: var(--space-md) var(--space-lg);
+  border: 2px solid;
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  font-weight: 600;
+  font-size: var(--font-size-sm);
+}
+
+.control-btn.start {
+  background: var(--success);
+  color: white;
+  border-color: var(--success);
+}
+
+.control-btn.pause {
+  background: var(--warning);
+  color: white;
+  border-color: var(--warning);
+}
+
+.control-btn.reset {
+  background: var(--bg-accent);
+  color: var(--text-secondary);
+  border-color: var(--brand-gold);
+}
+
+.control-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.control-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none !important;
+}
+
+/* Session Info */
+.session-info {
+  text-align: center;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: var(--text-muted);
+  font-size: var(--font-size-sm);
+  padding: var(--space-md);
+  background: var(--bg-accent);
+  border-radius: var(--radius-md);
+}
+
+/* Hydration Display */
+.hydration-display {
+  display: flex;
+  justify-content: center;
+  margin: var(--space-xl) 0;
+}
+
+.water-glass {
+  width: 120px;
+  height: 200px;
+  background: linear-gradient(to bottom, 
+    rgba(255, 255, 255, 0.1) 0%, 
+    rgba(255, 255, 255, 0.05) 100%);
+  border: 4px solid var(--brand-gold);
+  border-radius: 0 0 var(--radius-xl) var(--radius-xl);
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: end;
+  justify-content: center;
+  padding-bottom: var(--space-md);
+  box-shadow: 
+    inset 0 0 20px rgba(255, 255, 255, 0.1),
+    0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.glass-fill {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: linear-gradient(to top, 
+    rgba(54, 162, 235, 0.9) 0%, 
+    rgba(54, 162, 235, 0.7) 50%,
+    rgba(54, 162, 235, 0.5) 100%);
+  transition: height 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+  border-radius: 0 0 var(--radius-md) var(--radius-md);
+  height: 0%;
+  overflow: hidden;
+}
+
+.glass-fill::before {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, 
+    transparent, 
+    rgba(255, 255, 255, 0.6), 
+    transparent);
+  animation: waterShimmer 2s ease-in-out infinite;
+}
+
+.glass-fill::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(45deg,
+    transparent 25%,
+    rgba(255, 255, 255, 0.1) 50%,
+    transparent 75%);
+  animation: waterBubbles 3s ease-in-out infinite;
+}
+
+.glass-measurement {
+  position: relative;
+  z-index: 2;
+  color: var(--text-primary);
+  font-size: var(--font-size-xs);
+  font-weight: bold;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+/* Hydration Controls */
+.hydration-controls {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-md);
+}
+
+.hydration-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-sm);
+  padding: var(--space-md);
+  background: var(--bg-accent);
+  color: var(--text-secondary);
+  border: 2px solid var(--brand-gold);
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  font-size: var(--font-size-sm);
+}
+
+.hydration-btn:hover {
+  background: var(--brand-gold);
+  color: var(--bg-primary);
+  transform: translateY(-2px);
+}
+
+.hydration-btn.reset {
+  border-color: var(--error);
+  color: var(--error);
+}
+
+.hydration-btn.reset:hover {
+  background: var(--error);
+  color: white;
+}
+
+/* Settings Panel */
+.settings-panel {
+  grid-column: 1 / -1;
+  text-align: center;
+  margin-top: var(--space-lg);
+}
+
+.settings-btn {
+  background: var(--bg-accent);
+  color: var(--text-secondary);
+  border: 2px solid var(--brand-gold);
+  border-radius: var(--radius-md);
+  padding: var(--space-md) var(--space-lg);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-sm);
+  font-size: var(--font-size-sm);
+}
+
+.settings-btn:hover {
+  background: var(--brand-gold);
+  color: var(--bg-primary);
+}
+
+/* Modal Styles */
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  backdrop-filter: blur(4px);
+}
+
+.modal.hidden {
+  display: none !important;
+}
+
+.modal-content {
+  background: var(--bg-secondary);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-lg);
+  max-width: 500px;
+  width: 90%;
+  max-height: 80vh;
+  overflow-y: auto;
+  border: 2px solid var(--brand-gold);
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--space-lg);
+  border-bottom: 1px solid var(--bg-accent);
+}
+
+.modal-title {
+  font-family: var(--font-heading);
+  color: var(--brand-gold);
+  margin: 0;
+}
+
+.modal-close {
+  background: none;
+  border: none;
+  color: var(--text-muted);
+  font-size: var(--font-size-lg);
+  cursor: pointer;
+  padding: var(--space-sm);
+  border-radius: var(--radius-sm);
+  transition: all var(--transition-fast);
+}
+
+.modal-close:hover {
+  background: var(--error);
+  color: white;
+}
+
+.modal-body {
+  padding: var(--space-lg);
+}
+
+.modal-footer {
+  padding: var(--space-lg);
+  border-top: 1px solid var(--bg-accent);
+  text-align: right;
+}
+
+/* Form Elements */
+.setting-group {
+  margin-bottom: var(--space-lg);
+}
+
+.setting-label {
+  display: block;
+  color: var(--text-primary);
+  margin-bottom: var(--space-sm);
+  font-weight: 500;
+}
+
+.setting-input {
+  width: 100%;
+  background: var(--bg-accent);
+  border: 2px solid transparent;
+  border-radius: var(--radius-md);
+  padding: var(--space-md);
+  color: var(--text-primary);
+  font-size: var(--font-size-md);
+  transition: all var(--transition-fast);
+}
+
+.setting-input:focus {
+  outline: none;
+  border-color: var(--brand-gold);
+  background: rgba(255, 165, 0, 0.1);
+}
+
+.setting-checkbox {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+  cursor: pointer;
+}
+
+.setting-checkbox input[type="checkbox"] {
+  width: 20px;
+  height: 20px;
+  accent-color: var(--brand-gold);
+}
+
+.checkbox-text {
+  color: var(--text-secondary);
+}
+
+.save-btn {
+  background: var(--brand-gold);
+  color: var(--bg-primary);
+  border: none;
+  border-radius: var(--radius-md);
+  padding: var(--space-md) var(--space-lg);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  font-weight: 600;
+  font-size: var(--font-size-sm);
+}
+
+.save-btn:hover {
+  background: var(--brand-gold-light);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(255, 165, 0, 0.4);
+}
+
+/* Enhanced Dish Input Styling */
+.dish-input {
+  width: 100%;
+  background: var(--bg-accent);
+  border: 2px solid var(--brand-gold);
+  border-radius: var(--radius-md);
+  padding: var(--space-md) var(--space-lg);
+  color: var(--text-primary);
+  font-size: var(--font-size-md);
+  font-family: var(--font-body);
+  transition: all var(--transition-normal);
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.dish-input:focus {
+  outline: none;
+  border-color: var(--brand-gold-light);
+  background: rgba(255, 165, 0, 0.1);
+  box-shadow: 
+    inset 0 2px 4px rgba(0, 0, 0, 0.1),
+    0 0 15px rgba(255, 165, 0, 0.3);
+  transform: translateY(-1px);
+}
+
+.dish-input::placeholder {
+  color: var(--text-muted);
+  font-style: italic;
+}
+
+/* Recipe Input Container */
+.recipe-input {
+  display: flex;
+  gap: var(--space-md);
+  margin-top: var(--space-lg);
+  align-items: stretch;
+}
+
+/* Kitchen Tool Buttons Enhancement */
+.tool-btn {
+  position: relative;
+  background: linear-gradient(135deg, var(--bg-accent), var(--bg-secondary));
+  border: 2px solid var(--brand-gold);
+  border-radius: var(--radius-md);
+  padding: var(--space-md) var(--space-lg);
+  color: var(--text-secondary);
+  font-weight: 500;
+  font-size: var(--font-size-sm);
+  cursor: pointer;
+  transition: all var(--transition-normal);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  overflow: hidden;
+}
+
+.tool-btn:hover {
+  background: linear-gradient(135deg, var(--brand-gold), var(--brand-gold-light));
+  color: var(--bg-primary);
+  transform: translateY(-2px);
+  box-shadow: 
+    0 4px 12px rgba(255, 165, 0, 0.3),
+    0 0 20px rgba(255, 165, 0, 0.2);
+}
+
+.tool-btn.danger {
+  border-color: var(--error);
+  background: linear-gradient(135deg, var(--bg-accent), #8b0000);
+}
+
+.tool-btn.danger:hover {
+  background: linear-gradient(135deg, var(--error), #ff6b6b);
+  border-color: #ff6b6b;
+  color: white;
+  box-shadow: 
+    0 4px 12px rgba(239, 83, 80, 0.4),
+    0 0 20px rgba(239, 83, 80, 0.3);
+}
+
+/* Kitchen Tools Section */
+.kitchen-tools {
+  margin-top: var(--space-xxl);
+  padding: var(--space-lg);
+  background: var(--bg-secondary);
+  border-radius: var(--radius-lg);
+  border: 2px solid var(--brand-gold);
+}
+
+.tools-title {
+  font-family: var(--font-heading);
+  color: var(--brand-gold);
+  text-align: center;
+  margin-bottom: var(--space-lg);
+  font-size: var(--font-size-lg);
+}
+
+.tools-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: var(--space-md);
+}
+
+/* Station Header Enhancement */
+.station-header {
+  text-align: center;
+  margin-bottom: var(--space-lg);
+  padding: var(--space-md);
+  background: rgba(255, 165, 0, 0.1);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--brand-gold);
+}
+
+.station-title {
+  font-family: var(--font-heading);
+  color: var(--brand-gold);
+  font-size: var(--font-size-lg);
+  margin-bottom: var(--space-xs);
+  text-shadow: 0 2px 4px rgba(255, 165, 0, 0.3);
+}
+
+.station-description {
+  color: var(--text-muted);
+  font-size: var(--font-size-sm);
+  font-style: italic;
+}
+
+/* Input Focus Ring Animation */
+@keyframes focusRing {
+  0% {
+    box-shadow: 
+      inset 0 2px 4px rgba(0, 0, 0, 0.1),
+      0 0 0 rgba(255, 165, 0, 0.3);
+  }
+  50% {
+    box-shadow: 
+      inset 0 2px 4px rgba(0, 0, 0, 0.1),
+      0 0 20px rgba(255, 165, 0, 0.5);
+  }
+  100% {
+    box-shadow: 
+      inset 0 2px 4px rgba(0, 0, 0, 0.1),
+      0 0 15px rgba(255, 165, 0, 0.3);
+  }
+}
+
+.dish-input:focus {
+  animation: focusRing 2s ease-in-out infinite;
+}
+
+/* Tool Button Click Animation */
+.tool-btn:active {
+  transform: scale(0.95) translateY(0);
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* Success State for Tool Buttons */
+.tool-btn.success {
+  background: linear-gradient(135deg, var(--success), #81c784) !important;
+  border-color: var(--success) !important;
+  color: white !important;
+  animation: successPulse 0.6s ease-out;
+}
+
+/* ...existing code... */
